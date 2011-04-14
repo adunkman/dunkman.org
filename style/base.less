@@ -1,0 +1,423 @@
+/**
+ * Fonts
+ ****************************************************************************/
+ 
+@font-face {
+   font-family: 'Colaborate';
+   src: url('/style/fonts/ColabLig-webfont.eot');
+   src: url('/style/fonts/ColabLig-webfont.eot?iefix') format('eot'),
+        url('/style/fonts/ColabLig-webfont.woff') format('woff'),
+        url('/style/fonts/ColabLig-webfont.ttf') format('truetype'),
+        url('/style/fonts/ColabLig-webfont.svg#webfontR2xcGGVv') format('svg');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Colaborate';
+   src: url('/style/fonts/ColabMed-webfont.eot');
+   src: url('/style/fonts/ColabMed-webfont.eot?iefix') format('eot'),
+        url('/style/fonts/ColabMed-webfont.woff') format('woff'),
+        url('/style/fonts/ColabMed-webfont.ttf') format('truetype'),
+        url('/style/fonts/ColabMed-webfont.svg#webfontHpK4vQGz') format('svg');
+   font-weight: bold;
+   font-style: normal;
+}
+
+/**
+ * Reset styles
+ ****************************************************************************/
+ 
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, 
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, 
+font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, 
+u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, 
+caption, tbody, tfoot, thead, tr, th, td
+{
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	border: 0;
+	outline: 0;
+	background: transparent;
+}
+
+p
+{
+   line-height: 130%;
+   margin-bottom: 1.3em;
+}
+
+ol, ul
+{
+	list-style: none;
+}
+
+blockquote, q 
+{
+	quotes: none;
+}
+
+table 
+{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/**
+ * Mixins
+ ****************************************************************************/
+.border-radius (@radius: 5px)
+{
+   border-radius: @radius;
+   -webkit-border-radius: @radius;
+   -moz-border-radius: @radius;
+}
+
+.transition (@time: .3s, @value: all, @function: ease-in-out)
+{
+   transition: @value @time @function;
+   -o-transition: @value @time @function;
+   -moz-transition: @value @time @function;
+   -webkit-transition: @value @time @function;
+}
+
+.box-shadow (@x: 0, @y: 1px, @blur: 0, @color: #fff)
+{
+   -webkit-box-shadow: @x @y @blur @color;
+   -moz-box-shadow: @x @y @blur @color;
+   box-shadow: @x @y @blur @color;
+}
+
+/**
+ * Variables
+ ****************************************************************************/
+
+@max-width: 960px;
+
+@text-color: #444;
+@light-text-color: #999;
+
+@border-color: #aaa;
+
+/**
+ * Element styles
+ ****************************************************************************/
+ 
+body
+{
+   font-family: 'Colaborate', Helvetica, Arial, sans-serif;
+   color: @text-color;
+   background-image: url('/images/backgrounds/site.jpg');
+}
+
+h1, h2, h3, h4, h5, h6
+{
+   font-weight: bold;
+   line-height: 130%;
+   
+   a
+   {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+
+      .transition;
+      
+      :hover
+      {
+         border-color: @border-color;
+      }
+   }
+}
+
+h1
+{
+   font-size: 2em;
+}
+
+h2
+{
+   font-size: 1.5em;
+}
+
+h3
+{
+   text-transform: uppercase;
+}
+
+h4
+{
+   color: @light-text-color;
+   text-transform: uppercase;
+}
+
+/**
+ * Container styles
+ ****************************************************************************/
+ 
+.root-container
+{
+   background-color: #fff;
+   
+   .border-radius(8px);
+   .box-shadow(0, 3px, 5px, rgba(0,0,0,.25));
+   
+   max-width: @max-width;
+   min-height: 350px;
+   margin: 20px auto 0 auto;
+   padding: 20px 40px;
+   
+   :after
+   {
+      clear: both;
+      display: block;
+      height: 0;
+      content: "";
+   }
+}
+
+.logotype-container
+{
+   position: absolute;
+   float: left;
+   margin-left: -10px;
+}
+
+.navigation-container,
+.content-container
+{
+   margin-left: 60px;
+}
+
+.navigation-container
+{
+   margin-bottom: 20px;
+}
+
+.footer-container
+{
+   max-width: @max-width;
+   margin: 20px auto;
+   padding: 0 40px;
+}
+
+
+/**
+ * Site interface styles
+ ****************************************************************************/
+
+.logotype
+{
+   display: block;
+   margin-top: 13px;
+   padding-right: 3px;
+   
+   border-right: 3px solid transparent;
+   
+   .transition;
+   
+   :hover
+   {
+      border-color: @border-color;
+   }
+}
+
+.site-navigation
+{
+   margin-top: 10px;
+   
+   li
+   {
+      display: inline;
+   }
+   
+   a
+   {
+      margin-right: 20px;
+      padding-top: 10px;
+
+      color: @light-text-color;
+      border-bottom: 3px solid transparent;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: bold;
+
+      .transition;
+      
+      :hover
+      {
+         color: @text-color;
+         border-color: @border-color;
+      }
+   }
+}
+
+.profiles-navigation
+{
+   float: right;
+   margin: -8px -15px 0 0;
+   
+   li
+   {
+      display: inline;
+   }
+   
+   a
+   {
+      opacity: 0.5;
+      .transition;
+      
+      :hover
+      {
+         opacity: 0.99;
+      }
+   }
+   
+   .help-text
+   {
+      display: block;
+      margin-top: 5px;
+
+      font-size: 0.95em;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: right;
+
+      color: @light-text-color;
+   }
+}
+
+.utility-link
+{
+   color: #777;
+   text-shadow: 0 1px 0 #fff;
+   border-bottom: 2px solid transparent;
+   
+   font-size: 0.95em;
+   line-height: 130%;
+   text-transform: uppercase;
+   text-decoration: none;
+   font-weight: bold;
+   
+   .transition;
+   
+   :hover
+   {
+      color: @text-color;
+      border-color: @border-color;
+   }
+}
+
+.copyright, 
+.separator
+{
+   color: @light-text-color;
+   text-shadow: 0 1px 0 #fff;
+   line-height: 130%;
+}
+
+/*
+ * Page block containers
+ ****************************************************************************/
+ 
+.full-block
+{
+   clear: both;
+}
+
+.half-block
+{
+   width: 50%;
+   float: left;
+}
+
+.two-thirds-block
+{
+   width: 66.66667%;
+   float: left;
+}
+
+.one-third-block
+{
+   width: 33.33333%;
+   float: left;
+}
+
+.new-line
+{
+   clear: both;
+}
+
+/*
+ * Page style
+ ****************************************************************************/
+
+.aside
+{
+   margin-left: 1.5em;
+}
+
+.pullout
+{
+   float: right;
+   margin: 1em;
+}
+
+.read-on
+{
+   font-size: .8em;
+   text-decoration: none;
+   text-transform: uppercase;
+   font-weight: bold;
+   
+   color: #aaa;
+   border-bottom: 2px solid transparent;
+   
+   .transition;
+   
+   :after
+   {
+      content: "\2192";
+   }
+   
+   :hover
+   {
+      color: @text-color;
+      border-color: @border-color;
+   }
+}
+
+.article-info
+{
+   font-size: 0.9em;
+}
+
+.share
+{
+   float: right;
+   
+   li
+   {
+      display: inline;
+   }
+}
+
+.copy
+{
+   font-size: 2em;
+   margin: 1em 0 1.3em 0;
+   
+   h2
+   {
+      font-size: 1.5em;
+      font-weight: normal;
+   }
+   
+   .read-on
+   {
+      font-size: 0.6em;
+      border-bottom-width: 3px;
+   }
+}
