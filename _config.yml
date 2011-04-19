@@ -1,7 +1,6 @@
-auto:                   true
-server:                 true
+auto:                   false
+server:                 false
 lsi:                    true
 server_port:            8080
 permalink:              /:year/:month/:day/:title.html
 category_dir:           tags
-lessc:                  lessc

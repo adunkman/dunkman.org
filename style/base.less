@@ -277,13 +277,13 @@ h4
    
    .help-text
    {
+      position: absolute;
       display: block;
       margin-top: 5px;
 
       font-size: 0.95em;
       font-weight: bold;
       text-transform: uppercase;
-      text-align: right;
 
       color: @light-text-color;
    }
@@ -350,13 +350,23 @@ h4
    clear: both;
 }
 
+.left-column-block
+{
+   padding-right: 1em;
+}
+
+.right-column-block
+{
+   padding-left: 1em;
+}
+
 /*
  * Page style
  ****************************************************************************/
 
 .aside
 {
-   margin-left: 1.5em;
+   margin: 1em 0 0 1.5em;
 }
 
 .pullout
