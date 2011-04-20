@@ -94,11 +94,14 @@ table
  * Variables
  ****************************************************************************/
 
-@max-width: 960px;
+@pattern-text-color: #000;
+@pattern-light-text-color: #666;
+@pattern-light-color: #999;
+@pattern-border-color: #aaa;
 
-@text-color: #444;
+@background: #fff;
+@text-color: #333;
 @light-text-color: #999;
-
 @border-color: #aaa;
 
 /**
@@ -110,6 +113,7 @@ body
    font-family: 'Colaborate', Helvetica, Arial, sans-serif;
    color: @text-color;
    background-image: url('/images/backgrounds/site.jpg');
+   background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6
@@ -142,8 +146,10 @@ h2
    font-size: 1.5em;
 }
 
+h1.article-header,
 h3
 {
+   font-size: 1em;
    text-transform: uppercase;
 }
 
@@ -153,225 +159,262 @@ h4
    text-transform: uppercase;
 }
 
+img 
+{
+   max-width: 100%;
+}
+
+img.framed
+{
+   .border-radius;
+   border: 1px solid @border-color;
+   padding: 3px;
+}
+
+code
+{
+   border: 1px solid @border-color;
+   padding: 1px;
+}
+
 /**
  * Container styles
  ****************************************************************************/
- 
-.root-container
-{
-   background-color: #fff;
-   
-   .border-radius(8px);
-   .box-shadow(0, 3px, 5px, rgba(0,0,0,.25));
-   
-   max-width: @max-width;
-   min-height: 350px;
-   margin: 20px auto 0 auto;
-   padding: 20px 40px;
-   
-   :after
-   {
-      clear: both;
-      display: block;
-      height: 0;
-      content: "";
-   }
-}
 
-.logotype-container
+.outer-container
 {
-   position: absolute;
-   float: left;
-   margin-left: -10px;
-}
-
-.navigation-container,
-.content-container
-{
-   margin-left: 60px;
+   max-width: 960px;
+   margin-left: auto;
+   margin-right: auto;
+   padding-left: 20px;
+   padding-right: 20px;
 }
 
 .navigation-container
 {
+   .outer-container;
+   margin-top: 20px;
    margin-bottom: 20px;
+   color: @pattern-text-color;
+   
+   .logotype
+   {
+      border-bottom: 3px solid transparent;
+      .transition;
+
+      :hover
+      {
+         border-color: @pattern-border-color;
+      }
+   }
+   
+   .site-navigation
+   {
+      margin-top: 10px;
+
+      li
+      {
+         display: inline;
+      }
+
+      a
+      {
+         margin-right: 20px;
+         padding-top: 10px;
+
+         color: @pattern-light-text-color;
+         border-bottom: 3px solid transparent;
+         text-transform: uppercase;
+         text-decoration: none;
+         font-weight: bold;
+
+         .transition;
+
+         :hover
+         {
+            color: @pattern-text-color;
+            border-color: @pattern-border-color;
+         }
+      }
+   }
+   
+   .profiles-navigation
+   {
+      margin-top: 28px;
+      float: right;
+
+      li
+      {
+         display: inline;
+      }
+
+      a
+      {
+         opacity: 0.5;
+         .transition;
+
+         :hover
+         {
+            opacity: 0.99;
+         }
+      }
+
+      .help-text
+      {
+         display: block;
+         margin-top: 10px;
+
+         font-size: 0.95em;
+         font-weight: bold;
+         text-transform: uppercase;
+         text-align: right;
+
+         color: @pattern-light-text-color;
+      }
+   }
 }
 
 .footer-container
 {
-   max-width: @max-width;
-   margin: 20px auto;
-   padding: 0 40px;
-}
-
-
-/**
- * Site interface styles
- ****************************************************************************/
-
-.logotype
-{
-   display: block;
-   margin-top: 13px;
-   padding-right: 3px;
+   .outer-container;
+   margin-top: 20px;
+   clear: both;
    
-   border-right: 3px solid transparent;
-   
-   .transition;
-   
-   :hover
+   .utility-link
    {
-      border-color: @border-color;
-   }
-}
+      color: @pattern-light-text-color;
+      border-bottom: 2px solid transparent;
 
-.site-navigation
-{
-   margin-top: 10px;
-   
-   li
-   {
-      display: inline;
-   }
-   
-   a
-   {
-      margin-right: 20px;
-      padding-top: 10px;
-
-      color: @light-text-color;
-      border-bottom: 3px solid transparent;
+      font-size: 0.95em;
+      line-height: 130%;
       text-transform: uppercase;
       text-decoration: none;
       font-weight: bold;
-
       .transition;
-      
+
       :hover
       {
-         color: @text-color;
-         border-color: @border-color;
-      }
-   }
-}
-
-.profiles-navigation
-{
-   float: right;
-   margin: -8px -15px 0 0;
-   
-   li
-   {
-      display: inline;
-   }
-   
-   a
-   {
-      opacity: 0.5;
-      .transition;
-      
-      :hover
-      {
-         opacity: 0.99;
+         color: @pattern-text-color;
+         border-color: @pattern-border-color;
       }
    }
    
-   .help-text
+   .copyright, 
+   .separator
    {
-      position: absolute;
-      display: block;
-      margin-top: 5px;
-
-      font-size: 0.95em;
-      font-weight: bold;
-      text-transform: uppercase;
-
-      color: @light-text-color;
+      color: @pattern-light-color;
+      line-height: 130%;
    }
-}
-
-.utility-link
-{
-   color: #777;
-   text-shadow: 0 1px 0 #fff;
-   border-bottom: 2px solid transparent;
-   
-   font-size: 0.95em;
-   line-height: 130%;
-   text-transform: uppercase;
-   text-decoration: none;
-   font-weight: bold;
-   
-   .transition;
-   
-   :hover
-   {
-      color: @text-color;
-      border-color: @border-color;
-   }
-}
-
-.copyright, 
-.separator
-{
-   color: @light-text-color;
-   text-shadow: 0 1px 0 #fff;
-   line-height: 130%;
 }
 
 /*
- * Page block containers
+ * Content styles
  ****************************************************************************/
- 
-.full-block
+
+.content
 {
-   clear: both;
+   .copy-container
+   {
+      background-color: @text-color;
+      color: @background;
+      font-size: 2em;
+      .transition;
+
+      .content
+      {
+         .outer-container;
+         padding-top: 20px;
+         padding-bottom: 20px;
+      }
+
+      h2
+      {
+         font-size: 1.5em;
+         font-weight: normal;
+      }
+      
+      p
+      {
+         margin: 0;
+      }
+
+      .read-on
+      {
+         font-size: 0.6em;
+         border-bottom-width: 3px;
+         
+         :hover
+         {
+            color: @background;
+         }
+      }
+   }
+   
+   .plain-text-container
+   {
+      background-color: @background;
+      color: @text-color;
+      
+      .content
+      {
+         .outer-container;
+         padding-top: 20px;
+         padding-bottom: 20px;
+      }
+   }
+   
+   .column-container
+   {
+      :after
+      {
+         content: "";
+         height: 0;
+         display: block;
+         clear: both;
+      }
+      
+      .grid-1  { float: left; width: 8.3333333333%; }
+      .grid-2  { float: left; width: 16.666666667%; }
+      .grid-3  { float: left; width: 25%; }
+      .grid-4  { float: left; width: 33.333333333%; }
+      .grid-5  { float: left; width: 41.666666667%; }
+      .grid-6  { float: left; width: 50%; }
+      .grid-7  { float: left; width: 58.333333333%; }
+      .grid-8  { float: left; width: 66.666666667%; }
+      .grid-9  { float: left; width: 75%; }
+      .grid-10 { float: left; width: 83.333333333%; }
+      .grid-11 { float: left; width: 91.666666667%; }
+      .grid-12 { float: left; width: 100%; }
+      
+      .left-column,
+      .column-left
+      {
+         padding-right: 10px;
+      }
+      
+      .right-column,
+      .column-right
+      {
+         padding-left: 10px;
+      }
+      
+      .aside
+      {
+         padding-left: 20px;
+      }
+   }
 }
 
-.half-block
-{
-   width: 50%;
-   float: left;
-}
 
-.two-thirds-block
-{
-   width: 66.66667%;
-   float: left;
-}
-
-.one-third-block
-{
-   width: 33.33333%;
-   float: left;
-}
-
-.new-line
-{
-   clear: both;
-}
-
-.left-column-block
-{
-   padding-right: 1em;
-}
-
-.right-column-block
-{
-   padding-left: 1em;
-}
 
 /*
  * Page style
  ****************************************************************************/
 
-.aside
-{
-   margin: 1em 0 0 1.5em;
-}
-
 .pullout
 {
    float: right;
+   max-width: 30%;
    margin: 1em;
 }
 
@@ -402,6 +445,7 @@ h4
 .article-info
 {
    font-size: 0.9em;
+   margin-bottom: 0;
 }
 
 .share
@@ -411,23 +455,5 @@ h4
    li
    {
       display: inline;
-   }
-}
-
-.copy
-{
-   font-size: 2em;
-   margin: 1em 0 1.3em 0;
-   
-   h2
-   {
-      font-size: 1.5em;
-      font-weight: normal;
-   }
-   
-   .read-on
-   {
-      font-size: 0.6em;
-      border-bottom-width: 3px;
    }
 }

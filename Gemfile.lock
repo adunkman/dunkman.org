@@ -10,17 +10,25 @@ GEM
       directory_watcher (>= 1.1.1)
       liquid (>= 1.9.0)
       maruku (>= 0.5.9)
+    less (1.2.21)
+      mutter (>= 0.4.2)
+      treetop (>= 1.4.2)
     liquid (2.2.2)
     maruku (0.6.0)
       syntax (>= 1.0.0)
+    mutter (0.5.3)
+    polyglot (0.3.1)
     rack (1.2.2)
     rack-jekyll (0.3.5)
       jekyll
       rack
     syntax (1.0.0)
+    treetop (1.4.9)
+      polyglot (>= 0.3.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  less
   rack-jekyll
