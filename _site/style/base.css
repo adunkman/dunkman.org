@@ -372,5 +372,6 @@ code {
   font-size: 0.9em;
   margin-bottom: 0;
 }
+.article { margin-bottom: 40px; }
 .share { float: right; }
 .share li { display: inline; }

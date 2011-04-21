@@ -12,19 +12,20 @@ class: notebook
    <div class="content">
       <article><div class="article">
          {{ content }}
+         
+         <ul class="share">
+            <li class="twitter">
+               <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="adunkman">Tweet</a>
+            </li>
+         </ul>
+         <p class="article-info">
+            <time>{{ page.date | date: '%B %d, %Y' }}</time>
+            <span class="separator">&bull;</span>
+            {% for category in page.categories %}
+               <a href="/tags/{{ category }}">{{ category }}</a>
+            {% endfor %}
+         </p>
       </div></article>
-      <ul class="share">
-         <li class="twitter">
-            <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="adunkman">Tweet</a>
-         </li>
-      </ul>
-      <p class="article-info">
-         <time>{{ page.date | date: '%B %d, %Y' }}</time>
-         <span class="separator">&bull;</span>
-         {% for category in page.categories %}
-            <a href="/tags/{{ category }}">{{ category }}</a>
-         {% endfor %}
-      </p>
    </div>
    <div class="content">
       <div class="column-container">
