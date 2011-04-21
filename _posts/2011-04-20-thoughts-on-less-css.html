@@ -16,17 +16,90 @@ categories:
 </p>
 
 <h2>Features</h2>
+<p>Here&rsquo;s a quick run-down of the features of LESS that made me giddy. Features I won&rsquo;t be mentioning are <a href="http://lesscss.org/#-operations">operations</a>, <a href="http://lesscss.org/#-color-functions">color functions</a>, and <a href="http://lesscss.org/#-namespaces">namespaces</a>.</p>
 
-<h3>Variables</h3>
-<p>LESS gives you variables (technically constants, since they can&rsquo;t be redefined) that are prefixed by an ampersand. Very useful for color definitions.</p>
-<pre><code>
+<div class="column-container">
+   
+   <div class="grid-6">
+      <h3>Nested Rules</h3>
+      <p>This is what sold me on LESS. Gone are the days of trying to remember which class name should come first&mdash;and the frustration that out-of-order declarations cause. Inheritance is now simple and clear!</p>
+      <p>Pseudo classes (:hover, :after, etc) can be placed inside of their parent class, as expected. I almost always define hover states for links, and I love having only one root-level class declaration for them now.</p>
+   </div>
+   <div class="grid-6">
+{% highlight css %}
+#header {
+   h1 {
+      font-size: 18pt;
+      font-weight: bold;
+   }
+   p {
+      font-size: 12pt;
+      
+      a {
+         text-decoration: none;
+         :hover { 
+            border-width: 1px; 
+         }
+      }
+   }
+}
+{% endhighlight %}
+   </div>
+   
+   <div class="grid-12"></div>
+   
+   <div class="grid-6">
+      <h3>Variables</h3>
+      <p>LESS gives you variables (technically constants, since they can&rsquo;t be redefined) that are prefixed by an ampersand. Very useful for color definitions.</p>
+   </div>
+   <div class="grid-6">
+{% highlight css %}
 @color: #4D926F;
 
 #header {
    color: @color;
 }
-</code></pre>
+{% endhighlight %}
+   </div>
+   
+   <div class="grid-12"></div>
+   
+   <div class="grid-6">
+      <h3>Mixins</h3>
+      <p>If I were writing LESS, I would call these functions. They are defined almost like CSS classes, except they take in parameter values (which can have a default value). I found these to be particularly useful for eliminating all of those annoying &ldquo;vendor prefix&rdquo; blocks.</p>
+   </div>
+   <div class="grid-6">
+{% highlight css %}
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
 
-<h3>Mixins</h3>
+#header {
+  .rounded-corners;
+}
+#footer {
+  .rounded-corners(10px);
+}
+{% endhighlight %}
+   </div>
+   
+</div>
 
-<h2>How to Use</h2>
+
+<h2>Isn&rsquo;t this a JavaScript library?</h2>
+
+<img src="/images/posts/2011-04-20-thoughts-on-less-css/nodejs-logo.png" alt="less logo" class="pullout" />
+
+<p><strong>Yes.</strong> Does this mean you should use it as a client-side JavaScript library? <strong>Absolutely not!</strong></p>
+
+<p>It took me over a year to look into LESS because of that misunderstanding. I thought this was one of those newfangled web development trends that pushed everything onto the client (which I hate, as it doesn&rsquo;t obey the practice of <a href="http://www.alistapart.com/articles/understandingprogressiveenhancement/">progressive enhancement</a>). Enter <a href="http://nodejs.org/">Node.js</a>&mdash;and we can include the LESS to CSS conversion step in deployment.</p>
+
+{% highlight bash %}
+gem install less
+{% endhighlight %}
+
+<p>Issue the above command to install the gem, which will give you the <code>lessc</code> executable. If you&rsquo;re using TextMate, you might be interested in <a href="https://github.com/appden/less.tmbundle">this bundle</a> which includes syntax highlighting and an overwrite of the save key code to compile your .less to .css.</p>
+
+<p>Since I&rsquo;m using <a href="https://github.com/mojombo/jekyll">Jekyll</a> as a blogging platform, I use a <a href="https://gist.github.com/920651">simple plugin</a> to compile my .less files to .css files as the site is generated.</p>
