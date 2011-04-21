@@ -360,7 +360,10 @@ code {
   -moz-transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
 }
-.read-on:after { content: "\2192"; }
+.read-on:after {
+  font-family: Helvetica, Arial, sans-serif;
+  content: "\2192";
+}
 .read-on:hover {
   color: #333333;
   border-color: #aaaaaa;
