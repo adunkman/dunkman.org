@@ -104,6 +104,9 @@ table
 @light-text-color: #999;
 @border-color: #aaa;
 
+@accent-background: #eee;
+@accent-text-color: #222;
+
 /**
  * Element styles
  ****************************************************************************/
@@ -287,6 +290,10 @@ pre code
    }
 }
 
+body.notebook .site-navigation .notebook { color: @pattern-text-color; }
+body.portfolio .site-navigation .portfolio { color: @pattern-text-color; }
+body.about .site-navigation .about { color: @pattern-text-color; }
+
 .footer-container
 {
    .outer-container;
@@ -376,6 +383,12 @@ pre code
          padding-top: 20px;
          padding-bottom: 20px;
       }
+   }
+   
+   .accent-container
+   {
+      background-color: @accent-background;
+      color: @accent-text-color;
    }
    
    .column-container

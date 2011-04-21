@@ -218,6 +218,9 @@ pre code {
   text-align: right;
   color: #666666;
 }
+body.notebook .site-navigation .notebook { color: #000000; }
+body.portfolio .site-navigation .portfolio { color: #000000; }
+body.about .site-navigation .about { color: #000000; }
 .footer-container {
   max-width: 960px;
   margin-left: auto;
@@ -297,6 +300,10 @@ pre code {
   padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+.content .accent-container {
+  background-color: #eeeeee;
+  color: #222222;
 }
 .content .column-container:after {
   content: "";
