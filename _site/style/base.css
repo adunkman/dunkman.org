@@ -364,6 +364,49 @@ body.about .site-navigation .about { color: #000000; }
 .content .column-container .right-column { padding-left: 10px; }
 .content .column-container .column-right { padding-left: 10px; }
 .content .column-container .aside { padding-left: 20px; }
+.content ul {
+  margin-left: 1em;
+  margin-bottom: 1.3em;
+}
+.content ul li {
+  list-style: square outside;
+  line-height: 130%;
+}
+.content ul.tweet_list { margin: 0; }
+.content ul.tweet_list li {
+  list-style-type: none;
+  margin-bottom: 1.3em;
+}
+.content ul.tweet_list li:after {
+  height: 0;
+  content: "";
+  display: block;
+  clear: both;
+}
+.content ul.tweet_list li .tweet_avatar {
+  display: block;
+  margin-top: 5px;
+  float: left;
+}
+.content ul.tweet_list li .tweet_text {
+  display: block;
+  margin-left: 55px;
+}
+.content ul.tweet_list li .tweet_time {
+  display: block;
+  margin-left: 55px;
+  text-transform: uppercase;
+  font-size: 0.6em;
+}
+.content ul.tweet_list li .tweet_time a {
+  color: #999999;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+.content ul.tweet_list li .tweet_time a:hover { color: #333333; }
 .pullout {
   float: right;
   max-width: 30%;

@@ -431,6 +431,70 @@ body.about .site-navigation .about { color: @pattern-text-color; }
          padding-left: 20px;
       }
    }
+   
+   ul
+   {
+      margin-left: 1em;
+      margin-bottom: 1.3em;
+      
+      li
+      {
+         list-style: square outside;
+         line-height: 130%;
+      }
+   }
+   
+   ul.tweet_list
+   {
+      margin: 0;
+      
+      li
+      {
+         list-style-type: none;
+         margin-bottom: 1.3em;
+         
+         :after
+         {
+            height: 0;
+            content: "";
+            display: block;
+            clear: both;
+         }
+         
+         .tweet_avatar
+         {
+            display: block;
+            margin-top: 5px;
+            float: left;
+         }
+         
+         .tweet_text
+         {
+            display: block;
+            margin-left: 55px;
+         }
+         
+         .tweet_time
+         {
+            display: block;
+            margin-left: 55px;
+            text-transform: uppercase;
+            font-size: 0.6em;
+            
+            a
+            {
+               color: @light-text-color;
+               text-decoration: none;
+               .transition;
+
+               :hover
+               {
+                  color: @text-color;
+               }
+            }
+         }
+      }
+   }
 }
 
 
