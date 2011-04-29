@@ -495,6 +495,27 @@ body.about .site-navigation .about { color: @pattern-text-color; }
          }
       }
    }
+   
+   .article
+   {
+      margin-bottom: 10px;
+      
+      :after
+      {
+         content: "";
+         height: 0;
+         display: block;
+         clear: both;
+      }
+   }
+   
+   .article-list
+   {
+      .article
+      {
+         margin-bottom: 40px;
+      }
+   }
 }
 
 
@@ -539,11 +560,6 @@ body.about .site-navigation .about { color: @pattern-text-color; }
 {
    font-size: 0.9em;
    margin-bottom: 0;
-}
-
-.article
-{
-   margin-bottom: 40px;
 }
 
 .share

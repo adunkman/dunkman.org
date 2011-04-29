@@ -407,6 +407,14 @@ body.about .site-navigation .about { color: #000000; }
   -webkit-transition: all 0.3s ease-in-out;
 }
 .content ul.tweet_list li .tweet_time a:hover { color: #333333; }
+.content .article { margin-bottom: 10px; }
+.content .article:after {
+  content: "";
+  height: 0;
+  display: block;
+  clear: both;
+}
+.content .article-list .article { margin-bottom: 40px; }
 .pullout {
   float: right;
   max-width: 30%;
@@ -436,7 +444,6 @@ body.about .site-navigation .about { color: #000000; }
   font-size: 0.9em;
   margin-bottom: 0;
 }
-.article { margin-bottom: 40px; }
 .share { float: right; }
 .share li { display: inline; }
 .highlight { background: #eeeeee; }

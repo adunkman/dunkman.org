@@ -15,7 +15,7 @@ class: notebook
       <div class="column-container">
       
          <div class="grid-8">
-            <div class="column-left">
+            <div class="column-left article-list">
             {% for post in site.posts %}
                <article><div class="article">
                   <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
@@ -30,6 +30,8 @@ class: notebook
                      {% for category in post.categories %}
                         <a href="/tags/{{ category }}">{{ category }}</a>
                      {% endfor %}
+                     <span class="separator">&bull;</span>
+                     <a href="{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.id }}"></a>
                   </p>
                </div></article>
             {% endfor %}

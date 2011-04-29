@@ -10,10 +10,26 @@ class: tags
 
 <div class="plain-text-container">
    <div class="content">
-      <ul>
+      <div class="article-list">
       {% for post in site.categories[page.category] %}
-         <li><a href="{{ post.url }}">{{ post.title }}</a> <span class="separator">&bull;</span> <time>{{ post.date | date: '%B %d, %Y' }}</time></li>
+         <article><div class="article">
+            <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+            <div class="article-content">
+               {{ post.content | summarize }}
+               <a href="{{ post.url }}" class="read-on">Continue reading</a>
+               </p>
+            </div>
+            <p class="article-info">
+               <time>{{ post.date | date: '%B %d, %Y' }}</time>
+               <span class="separator">&bull;</span>
+               {% for category in post.categories %}
+                  <a href="/tags/{{ category }}">{{ category }}</a>
+               {% endfor %}
+               <span class="separator">&bull;</span>
+               <a href="{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.id }}"></a>
+            </p>
+         </div></article>
       {% endfor %}
-      </ul>
+      </div>
    </div>
 </div>
