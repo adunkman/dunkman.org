@@ -379,7 +379,7 @@ $(document).ready(function () {
    $("a[href^='https://']").popit();
    $(".tweets").tweet({
       avatar_size: 48,
-      count: 4,
+      count: 5,
       fetch: 20,
       filter: function(t){ return ! /^@\w+/.test(t["tweet_raw_text"]); },
       username: "adunkman",
