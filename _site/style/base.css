@@ -35,7 +35,6 @@ body {
   font-family: 'Colaborate', Helvetica, Arial, sans-serif;
   color: #333333;
   background-image: url('/images/backgrounds/site.jpg');
-  background-attachment: fixed;
 }
 h1 {
   font-weight: bold;
