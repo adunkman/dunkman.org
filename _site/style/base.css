@@ -146,6 +146,7 @@ pre code {
   border: 0 none;
   display: block;
   overflow: auto;
+  font-family: Monaco, monospace;
 }
 .highlight {
   padding: 10px;
