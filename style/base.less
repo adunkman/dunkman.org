@@ -334,6 +334,19 @@ body.about .site-navigation .about { color: @pattern-text-color; }
 
 .content
 {
+   ol, ul
+   {
+      list-style-position: outside;
+      margin-left: 2em;
+      line-height: 130%;
+      margin-bottom: 1.3em;
+      
+      li { margin-bottom: 0.4em; }
+   }
+   
+   ol { list-style-type: decimal; }
+   ul { list-style-type: disc; }
+   
    .copy-container
    {
       background-color: @text-color;

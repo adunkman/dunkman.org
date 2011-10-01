@@ -257,6 +257,22 @@ body.about .site-navigation .about { color: #000000; }
   line-height: 130%;
   text-shadow: 0 1px #ffffff;
 }
+.content ol {
+  list-style-position: outside;
+  margin-left: 2em;
+  line-height: 130%;
+  margin-bottom: 1.3em;
+}
+.content ol li { margin-bottom: 0.4em; }
+.content ul {
+  list-style-position: outside;
+  margin-left: 2em;
+  line-height: 130%;
+  margin-bottom: 1.3em;
+}
+.content ul li { margin-bottom: 0.4em; }
+.content ol { list-style-type: decimal; }
+.content ul { list-style-type: disc; }
 .content .copy-container {
   background-color: #333333;
   color: #ffffff;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Designing the Ideal Music Player Application &bull; Andrew Dunkman</title>
+      <title>XMBC and Hulu &bull; Andrew Dunkman</title>
       
       <link rel="stylesheet" href="/style/base.css" media="all" />
       <link rel="stylesheet" href="/style/response.css" media="all" />
@@ -35,55 +35,68 @@
       <div class="content">
          <div class="copy-container">
    <div class="content">
-      <h1 class="article-header"><a href="/2011/04/28/designing-the-ideal-music-player-application.html">Designing the Ideal Music Player Application</a></h1>
+      <h1 class="article-header"><a href="/2011/09/30/xmbc-and-hulu.html">XMBC and Hulu</a></h1>
    </div>
 </div>
          
 <div class="plain-text-container">
    <div class="content">
       <article><div class="article">
-         <img src="/images/posts/2011-04-28-designing-the-ideal-music-player-application/beatles-album.jpg" alt="Beatles album" class="pullout framed" />
+         <img src="/images/posts/2011-09-30-xbmc-and-hulu/logos.png" alt="xbmc and hulu logos" class="pullout" />
 
-<p>For the past few years, I&rsquo;ve used iTunes as my primary music player (Amarok was before that, back before version 2 was released). I&rsquo;ve never been happy with how iTunes works, and I can&rsquo;t seem to find another music player that has all the features I am looking for.</p>
+<p>I recently installed &ldquo;<a href="http://xbmc.org/">XBMC Live</a>,&rdquo; the Ubuntu-based standalone Linux distribution of XBMC (a set-top box-like media application). If you&rsquo;re familiar with <a href="http://boxee.tv">Boxee</a>, Boxee is based off XBMC.</p>
 
-<p>Large libraries are becoming more and more of a standard (mine has grown to 200 GB recently). I&rsquo;m continually shocked at iTunes&rsquo; lack of responsiveness in handing libraries of this size&mdash;and am looking for a better solution.
-   
+<p>Getting Hulu up and running on XBMC isn&rsquo;t the easiest, and there aren&rsquo;t too many good guides available out there. Steps to get Hulu up and running follow.
+
 <!-- more -->
 </p>
 
-<h2>Key Beliefs</h2>
+<p>TLDR: Check the <a href="#summary">summary</a> if you are impatient. This process is not for those unfamiliar with Linux.</p>
 
-<h3>A library shouldn&rsquo;t freak out when I remove a volume.</h3>
+<h2>Downloading and installing XBMC</h2>
 
-<p>I keep a lot of music on my external drives. One of the things I hate about using iTunes is that little exclamation point that appears when a file is missing but is in your library. You&rsquo;re more than familiar with this icon if you&rsquo;ve ever tried to play an item out of your library which is no longer located where iTunes thinks it is.</p>
+<p>I downloaded XBMC Live from <a href="http://xbmc.org/download/">their download page</a>, burned to a DVD, and popped it into my old desktop machine (an old Athlon64 with 1GB of RAM). The live DVD booted quickly, and after playing around for a few minutes, rebooted and installed to the machine.</p>
 
-<p><strong>I believe</strong> that a music player application should be able to keep track of the &ldquo;root&rdquo; level folder that each folder is located in, and detect if that folder is removed (and subsequently, replaced).</p>
+<h2>Adding Hulu</h2>
 
-<p>This is what I call a &ldquo;source.&rdquo; A source is merely a storage location that contains music files and is indexed. Providing that this &ldquo;source&rdquo; idea is abstracted from the player, many kinds of sources could exist (such as local network sources, WebDAV sources, Dropbox sources, Grooveshark, etc).</p>
+<p>Hulu isn&rsquo;t available on XBMC from the get-go (they had it, but Hulu requested it&rsquo;s removal). There&rsquo;s this pretty cool dude, who goes by Bluecop, who has created a plugin and released it in <a href="http://code.google.com/p/bluecop-xbmc-repo/downloads/list">his repository</a>. Download the ZIP file available at that link, copy it to your XBMC box (SFTP is available), and install it by navigating to &rdquo;System &rarr; Add-ons &rarr; Install from ZIP file&hellip;&rdquo; and selecting the file downloaded from Bluecop.</p>
 
+<p>After installing the repository, navigate to &ldquo;Videos &rarr; Add-ons &rarr; Get more&hellip; &rarr; Hulu&rdquo; and install it!</p>
 
-<h3>A library should share nicely, both by streaming and remotely accessing the files directly if available.</h3>
+<h2>Updating librtmp</h2>
 
-<p>A nice feature of iTunes is its ability to share your library with other users on your local network easily. This essentially allows another user access to the music available in that library.</p>
-   
-<p><strong>I believe</strong> that a music player should allow you to share your sources with other local users&mdash;and if the source is publicly accessible, give other local users the option of duplicating the source&rsquo;s metadata (so it can be accessed by the local machine independently).</p>
+<p>So close! If you tried it, you&rsquo;ll notice that, although you can look through videos and select items (even from your queue, if you sign in), none will play. If you <code>tail ~/.xbmc/temp/xbmc.log</code>, you&rsquo;ll see that Hulu&rsquo;s video providers aren&rsquo;t responding with &ldquo;handshake 6,&rdquo; but rather &ldquo;handshake 9.&rdquo;</p>
 
+<p>This change was done around March of 2011, and in order to get Hulu working, you&rsquo;ll need to update your version of librtmp (the library which streams the Flash video file from Hulu&rsquo;s servers).</p>
 
-<h2>Other Features</h2>
+<p>Source of RTMPDump is <a href="http://rtmpdump.mplayerhq.hu/">available to download</a>, and you&rsquo;ll want to copy it to your XBMC box and compile (see the <a href="#summary">summary below</a> for more details).</p>
 
-<ul>
-   <li>Easily handle large libraries&mdash;quick startup and maintain responsiveness.</li>
-   <li>Play to remote devices (AirPlay).</li>
-   <li>Web broadcasts (Podcasting).</li>
-   <li>Stop with fadeout.</li>
-   <li>Support playlisting.</li>
-</ul>
+<p>After building, copy (and replace) the files <code>librtmp.so, librtmp.a, librtmp.so.0</code> from the <code>librtmp</code> folder to <code>/usr/lib/</code>.</p>
 
-<h2>Final Thoughts</h2>
+<p>And you&rsquo;re all set! Reboot (you can probably get buy with just restarting XBMC, but rebooting doesn&rsquo;t hurt&mdash;so fast!) and you&rsquo;ll be able to watch all the Hulu you can get your hands on.</p>
 
-<p><strong>SQL databases</strong> have been around forever, yet not many music player applications use them as backends. Amarok, back when I used it, used SQL (Postgre)&mdash;and it was fantastic. I could search my library of 60,000 songs (at that time) in less than a tenth of a second.</p>
+<h2><a name="summary">Summary</a></h2>
 
-<p>Oh yeah, and I&rsquo;m a Mac person&mdash;who uses Windows and Linux on a regular basis. It&rsquo;d sure be swell if it was cross platform. Anybody know of a player? :)</p>
+<ol>
+   <li>Download <a href="http://xbmc.org/download">XBMC Live CD</a> and burn to disk.</li>
+   <li>Install to your media PC&rsquo;s hard disk.</li>
+   <li>Download <a href="http://code.google.com/p/bluecop-xbmc-repo/downloads/list">Bluecop&rsquo;s Add-ins repository</a> and copy the ZIP file, without extracting, to your XBMC machine.</li>
+   <li>Navigate to &rdquo;System &rarr; Add-ons &rarr; Install from ZIP file&hellip;&rdquo; and select the ZIP file to install the repository.</li>
+   <li>Navigate to &ldquo;Videos &rarr; Add-ons &rarr; Get more&hellip; &rarr; Hulu&rdquo; and install the Add-on.</li>
+   <li>Download the <a href="http://rtmpdump.mplayerhq.hu/">source of RTMPDump</a> and copy the source to your XBMC machine.</li>
+   <li>Compile RTMPDump and replace the XBMC version of librmtp with the new version.
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span><span class="nb">cd </span>rtmpdump/
+<span class="nv">$ </span>make <span class="nv">SYS</span><span class="o">=</span>posix
+<span class="nv">$ </span><span class="nb">cd </span>librtmp/
+<span class="nv">$ </span>sudo cp -f librtmp.so.0 /usr/lib/librtmp.so.0
+<span class="nv">$ </span>sudo cp -f librtmp.a /usr/lib/librtmp.a
+<span class="nv">$ </span><span class="nb">cd</span> /usr/lib/
+<span class="nv">$ </span>sudo ln -s librtmp.so.0 librtmp.so
+</code></pre>
+</div>
+   </li>
+   <li>Reboot, and enjoy!</li>
+</ol>
          
          <ul class="share">
             <li class="twitter">
@@ -91,12 +104,14 @@
             </li>
          </ul>
          <p class="article-info">
-            <time>April 28, 2011</time>
+            <time>September 30, 2011</time>
             <span class="separator">&bull;</span>
             
-               <a href="/tags/music">music</a>
+               <a href="/tags/linux">linux</a>
             
-               <a href="/tags/desktop-application">desktop-application</a>
+               <a href="/tags/xmbc">xmbc</a>
+            
+               <a href="/tags/hulu">hulu</a>
             
          </p>
       </div></article>
@@ -111,15 +126,15 @@
             <ul>
             
                <li>
-                  <a href="/2010/03/24/disabling-the-mac-os-x-startup-chime.html">Disabling the Mac OS X Startup Chime</a> 
+                  <a href="/2011/04/28/designing-the-ideal-music-player-application.html">Designing the Ideal Music Player Application</a> 
                   <span class="separator">&bull;</span> 
-                  <time>March 24, 2010</time>
+                  <time>April 28, 2011</time>
                </li>
             
                <li>
-                  <a href="/2011/09/30/xmbc-and-hulu.html">XMBC and Hulu</a> 
+                  <a href="/2010/03/24/disabling-the-mac-os-x-startup-chime.html">Disabling the Mac OS X Startup Chime</a> 
                   <span class="separator">&bull;</span> 
-                  <time>September 30, 2011</time>
+                  <time>March 24, 2010</time>
                </li>
             
                <li>
@@ -143,7 +158,7 @@
       <div id="disqus_thread"></div>
       <script type="text/javascript">
          var disqus_shortname = 'dunkman';
-         var disqus_identifier = '/2011/04/28/designing-the-ideal-music-player-application';
+         var disqus_identifier = '/2011/09/30/xmbc-and-hulu';
          (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
