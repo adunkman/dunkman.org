@@ -1,7 +1,7 @@
 /**
  * Fonts
  ****************************************************************************/
- 
+
 @font-face {
    font-family: 'Colaborate';
    src: url('/style/fonts/ColabLig-webfont.eot');
@@ -27,11 +27,11 @@
 /**
  * Reset styles
  ****************************************************************************/
- 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, 
-blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, 
-font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, 
-u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, 
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table,
 caption, tbody, tfoot, thead, tr, th, td
 {
 	margin: 0;
@@ -54,15 +54,20 @@ ol, ul
 	list-style: none;
 }
 
-blockquote, q 
+blockquote, q
 {
 	quotes: none;
 }
 
-table 
+table
 {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+.clear
+{
+   clear: both;
 }
 
 /**
@@ -110,7 +115,7 @@ table
 /**
  * Element styles
  ****************************************************************************/
- 
+
 body
 {
    font-family: 'Colaborate', Helvetica, Arial, sans-serif;
@@ -122,7 +127,7 @@ h1, h2, h3, h4, h5, h6
 {
    font-weight: bold;
    line-height: 130%;
-   
+
    a
    {
       color: inherit;
@@ -130,7 +135,7 @@ h1, h2, h3, h4, h5, h6
       border-bottom: 2px solid transparent;
 
       .transition;
-      
+
       :hover
       {
          border-color: @border-color;
@@ -161,7 +166,7 @@ h4
    text-transform: uppercase;
 }
 
-img 
+img
 {
    max-width: 100%;
 }
@@ -212,7 +217,7 @@ pre code
    margin-top: 20px;
    margin-bottom: 20px;
    color: @pattern-text-color;
-   
+
    .logotype
    {
       border-bottom: 3px solid transparent;
@@ -223,7 +228,7 @@ pre code
          border-color: @pattern-border-color;
       }
    }
-   
+
    .site-navigation
    {
       margin-top: 10px;
@@ -253,7 +258,7 @@ pre code
          }
       }
    }
-   
+
    .profiles-navigation
    {
       margin-top: 28px;
@@ -299,7 +304,7 @@ body.about .site-navigation .about { color: @pattern-text-color; }
    .outer-container;
    margin-top: 20px;
    clear: both;
-   
+
    .utility-link
    {
       color: @pattern-light-text-color;
@@ -318,8 +323,8 @@ body.about .site-navigation .about { color: @pattern-text-color; }
          border-color: @pattern-border-color;
       }
    }
-   
-   .copyright, 
+
+   .copyright,
    .separator
    {
       color: @pattern-light-color;
@@ -340,13 +345,13 @@ body.about .site-navigation .about { color: @pattern-text-color; }
       margin-left: 2em;
       line-height: 130%;
       margin-bottom: 1.3em;
-      
+
       li { margin-bottom: 0.4em; }
    }
-   
+
    ol { list-style-type: decimal; }
    ul { list-style-type: disc; }
-   
+
    .copy-container
    {
       background-color: @text-color;
@@ -366,7 +371,7 @@ body.about .site-navigation .about { color: @pattern-text-color; }
          font-size: 1.5em;
          font-weight: normal;
       }
-      
+
       p
       {
          margin: 0;
@@ -376,20 +381,20 @@ body.about .site-navigation .about { color: @pattern-text-color; }
       {
          font-size: 0.6em;
          border-bottom-width: 3px;
-         
+
          :hover
          {
             color: @background;
          }
       }
    }
-   
+
    .plain-text-container
    {
       background-color: @background;
       color: @text-color;
       .box-shadow;
-      
+
       .content
       {
          .outer-container;
@@ -397,13 +402,13 @@ body.about .site-navigation .about { color: @pattern-text-color; }
          padding-bottom: 20px;
       }
    }
-   
+
    .accent-container
    {
       background-color: @accent-background;
       color: @accent-text-color;
    }
-   
+
    .column-container
    {
       :after
@@ -413,7 +418,7 @@ body.about .site-navigation .about { color: @pattern-text-color; }
          display: block;
          clear: both;
       }
-      
+
       .grid-1  { float: left; width: 8.3333333333%; }
       .grid-2  { float: left; width: 16.666666667%; }
       .grid-3  { float: left; width: 25%; }
@@ -426,46 +431,46 @@ body.about .site-navigation .about { color: @pattern-text-color; }
       .grid-10 { float: left; width: 83.333333333%; }
       .grid-11 { float: left; width: 91.666666667%; }
       .grid-12 { float: left; width: 100%; }
-      
+
       .left-column,
       .column-left
       {
          padding-right: 10px;
       }
-      
+
       .right-column,
       .column-right
       {
          padding-left: 10px;
       }
-      
+
       .aside
       {
          padding-left: 20px;
       }
    }
-   
+
    ul
    {
       margin-left: 1em;
       margin-bottom: 1.3em;
-      
+
       li
       {
          list-style: square outside;
          line-height: 130%;
       }
    }
-   
+
    ul.tweet_list
    {
       margin: 0;
-      
+
       li
       {
          list-style-type: none;
          margin-bottom: 1.3em;
-         
+
          :after
          {
             height: 0;
@@ -473,27 +478,27 @@ body.about .site-navigation .about { color: @pattern-text-color; }
             display: block;
             clear: both;
          }
-         
+
          .tweet_avatar
          {
             display: block;
             margin-top: 5px;
             float: left;
          }
-         
+
          .tweet_text
          {
             display: block;
             margin-left: 55px;
          }
-         
+
          .tweet_time
          {
             display: block;
             margin-left: 55px;
             text-transform: uppercase;
             font-size: 0.6em;
-            
+
             a
             {
                color: @light-text-color;
@@ -508,11 +513,11 @@ body.about .site-navigation .about { color: @pattern-text-color; }
          }
       }
    }
-   
+
    .article
    {
       margin-bottom: 10px;
-      
+
       :after
       {
          content: "";
@@ -521,7 +526,7 @@ body.about .site-navigation .about { color: @pattern-text-color; }
          clear: both;
       }
    }
-   
+
    .article-list
    {
       .article
@@ -550,18 +555,18 @@ body.about .site-navigation .about { color: @pattern-text-color; }
    text-decoration: none;
    text-transform: uppercase;
    font-weight: bold;
-   
+
    color: #aaa;
    border-bottom: 2px solid transparent;
-   
+
    .transition;
-   
+
    :after
    {
       font-family: Helvetica, Arial, sans-serif;
       content: "\2192";
    }
-   
+
    :hover
    {
       color: @text-color;
@@ -578,7 +583,7 @@ body.about .site-navigation .about { color: @pattern-text-color; }
 .share
 {
    float: right;
-   
+
    li
    {
       display: inline;
