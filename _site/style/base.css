@@ -31,6 +31,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+.clear {
+   clear: both;
+}
 body {
   font-family: 'Colaborate', Helvetica, Arial, sans-serif;
   color: #333333;
