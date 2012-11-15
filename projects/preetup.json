@@ -1,0 +1,10 @@
+{
+   "name": "preetup",
+   "href": "http://preetup.herokuapp.com",
+   "image": "slide.jpg",
+   "featured": true,
+   "tagline": "A pre-meetup slideshow for your Meetup org.",
+   "paragraphs": [
+      "A Node.js application that uses Meetup.com’s API to show slideshows of the members at the events you’re attending. Better know your members and help cultivate chatter."
+   ]
+}

@@ -1,0 +1,10 @@
+{
+   "name": "courrrt",
+   "href": "http://adunkman.github.com/dribbble-client",
+   "image": "list.jpg",
+   "featured": true,
+   "tagline": "Scan dribbble like a pro.",
+   "paragraphs": [
+      "A client-side project presenting a quick overview of what’s hot on dribbble. Try the keyboard shortcuts!"
+   ]
+}

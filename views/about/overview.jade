@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+   section.intro
+      h1 <strong>Hey there!</strong> I’m Andrew Dunkman.
+      p I focus on people and design human user interfaces. <a href="/about" class="read-on">More</a>
+
+   section.projects
+      h1 Featured Projects
+
+      for project in projects
+         article
+            include ../projects/slide
+
+      article.read-on
+         a(href="/projects") More projects

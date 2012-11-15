@@ -1,0 +1,5 @@
+img(src=project.imageUrl)
+h2 <a href="#{project.href}">#{project.name}</a>
+p.tagline= project.tagline
+for paragraph in project.paragraphs
+   p!= paragraph
