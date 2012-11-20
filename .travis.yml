@@ -6,4 +6,11 @@ node_js:
   - 0.4
 
 notifications:
-  webhooks: http://respondto.it/travis
+    webhooks: http://deployasaurus.herokuapp.com/travis/notify
+
+after_success:
+  - wget --version
+  - wget http://deployasaurus.herokuapp.com/travis/deploy
+  - chmod a+x deploy
+  - cat deploy
+  - ./deploy
