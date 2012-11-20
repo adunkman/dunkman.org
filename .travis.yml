@@ -9,5 +9,9 @@ notifications:
 
 after_success:
   - export COMMIT=`git rev-parse HEAD`
-  - wget http://deployasaurus.herokuapp.com/travis/deploy/${COMMIT}
+  - wget http://deployasaurus.herokuapp.com/travis/deploy/${COMMIT}/success
   - chmod a+x ./deploy && ./deploy
+
+after_failure:
+  - export COMMIT=`git rev-parse HEAD`
+  - wget http://deployasaurus.herokuapp.com/travis/deploy/${COMMIT}/failure
