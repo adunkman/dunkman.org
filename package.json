@@ -1,5 +1,5 @@
 {
-  "name": "Repository for dunkman.org",
+  "name": "website",
   "version": "0.0.0",
   "main": "index.js",
   "dependencies": {
