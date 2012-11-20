@@ -11,4 +11,4 @@ notifications:
 after_success:
   - export COMMIT=`git rev-parse HEAD`
   - wget http://deployasaurus.herokuapp.com/travis/deploy/${COMMIT}
-  - chmod a+x deploy && ./deploy
+  - chmod a+x ./deploy && ./deploy
