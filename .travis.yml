@@ -4,14 +4,5 @@ node_js:
   - 0.8
   - 0.6
 
-notifications:
-  webhooks: http://deployasaurus.herokuapp.com/travis/notify
-
 after_success:
-  - export COMMIT=`git rev-parse HEAD`
-  - wget http://deployasaurus.herokuapp.com/travis/deploy/${COMMIT}/success
-  - chmod a+x ./deploy && ./deploy
-
-after_failure:
-  - export COMMIT=`git rev-parse HEAD`
-  - wget http://deployasaurus.herokuapp.com/travis/deploy/${COMMIT}/failure
+  - env | curl --data-binary @- http://www.deployasaur.us/build
