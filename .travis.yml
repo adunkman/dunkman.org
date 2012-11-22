@@ -5,4 +5,4 @@ node_js:
   - 0.6
 
 after_success:
-  - env | curl --data-binary @- http://www.deployasaur.us/build
+  - (git show -1 -s --pretty=COMMIT=%H%nREFS=%d && env) | curl -s --data-binary @- http://www.deployasaur.us/build | sh
