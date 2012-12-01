@@ -19,4 +19,28 @@ describe("projects", function () {
       done();
     });
   });
+
+  they("start with YAML front-matter", function (done) {
+    fs.readdir(projectDir, function (err, files) {
+      if (err) return done(err);
+      var completed = [];
+
+      for (var i = files.length - 1; i >= 0; i--) {
+        var file = files[i];
+
+        fs.readFile(projectDir + "/" + file, "utf-8", function (err, contents) {
+          if (err) return done(err);
+          var parts = contents.split("\n---\n");
+
+          if (parts.length !== 2) {
+            return done(new Error(file + " does not have YAML front-matter"));
+          }
+          else {
+            completed.push(file);
+            if (completed.length === files.length) return done();
+          }
+        });
+      };
+    });
+  });
 });
