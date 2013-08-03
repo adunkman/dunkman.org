@@ -1,3 +1,4 @@
-source :gemcutter
-gem 'rack-jekyll' 
-gem 'less'
+source "https://rubygems.org"
+
+gem "rack"
+gem "sinatra"
